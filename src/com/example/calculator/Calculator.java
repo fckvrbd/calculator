@@ -40,35 +40,40 @@ class calculator {
 
             System.out.println("Please enter your first and second number: ");
 
-            double userNum1 = userInput.nextDouble(); // Asks for first number
-            double userNum2 = userInput.nextDouble(); // Asks for second number
+            try {
+                double userNum1 = userInput.nextDouble(); // Asks for first number
+                double userNum2 = userInput.nextDouble(); // Asks for second number
 
-            switch (calcMethod) {
-                case "add":
-                    System.out.println("Your answer is: " + addition(userNum1, userNum2)); // Shows result
-                    break;
+                switch (calcMethod) {
+                    case "add":
+                        System.out.println("Your answer is: " + addition(userNum1, userNum2)); // Shows result
+                        break;
 
-                case "sub":
-                    System.out.println("Your answer is: " + subtraction(userNum1, userNum2)); // Shows result
-                    break;
+                    case "sub":
+                        System.out.println("Your answer is: " + subtraction(userNum1, userNum2)); // Shows result
+                        break;
 
-                case "mul":
-                    System.out.println("Your answer is: " + multiplication(userNum1, userNum2)); // Shows result
-                    break;
+                    case "mul":
+                        System.out.println("Your answer is: " + multiplication(userNum1, userNum2)); // Shows result
+                        break;
 
-                case "div":
-                    System.out.println("Your answer is: " + division(userNum1, userNum2)); // Shows result
-                    break;
+                    case "div":
+                        System.out.println("Your answer is: " + division(userNum1, userNum2)); // Shows result
+                        break;
 
-                default:
-                    System.out.println("Please enter a valid method"); // If method given is unknown
-                    break;
+                    default:
+                        System.out.println("Please enter a valid method"); // If method given is unknown
+                        break;
+                }
+            } catch (Exception E) {
+                System.out.println("Wrong method or input!");
+                break;
             }
 
-            System.out.println("Do you want to try again? (Y)/(N):");
+            System.out.println("Do you want to try again? (Y)/(N)");
             repeatCondition = userInput.next();
         }
 
-        while (repeatCondition.equals("Y"));
+        while (repeatCondition.toLowerCase().equals("y"));
     }
 }
